@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list">
+        <item>"Сделать уроки"</item>
+        <item>"Вынести мусор"</item>
+        <item>"Сходить в тренажерный зал"</item>
+        <item>"Почитать книгу"</item>
+        <item>"Выучить 10 английских слов"</item>
+    </string-array>
+</resources>
