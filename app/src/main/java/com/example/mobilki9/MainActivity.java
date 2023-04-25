@@ -1,15 +1,23 @@
 package com.example.mobilki9;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.mobilki9.adapterClass.AffirmationFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -91,5 +99,26 @@ public class MainActivity extends AppCompatActivity {
         toDoList.clearChoices();
         selectedItems.clear();
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        Fragment fragment = null;
+        if (id == R.id.affirmationFragmentId){
+            //fragment = new AffirmationFragment();
+            getSupportFragmentManager().beginTransaction().
+                    replace(R.id.fragmentContainer, AffirmationFragment.class, null).
+                    addToBackStack(null).
+                    commit();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
